@@ -1,0 +1,357 @@
+/* ============================================
+   style.css - IPL Cricket Score Predictor
+   ☀️ LIGHT THEME — Saffron × Royal Blue × Gold
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;600;700&display=swap');
+
+/* ── Global Reset & Light Theme ── */
+.stApp {
+    background: linear-gradient(160deg, #fffdf5 0%, #fff8e7 40%, #f0f4ff 100%);
+    color: #1a1a2e;
+    font-family: 'DM Sans', 'Segoe UI', Tahoma, sans-serif;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Cricket-field inspired background texture */
+.stApp::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 20% 20%, rgba(255, 140, 0, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 48, 135, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(255, 200, 0, 0.04) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Hide Streamlit header & footer */
+header, footer {
+    visibility: hidden;
+    height: 0 !important;
+}
+
+/* Main container */
+.block-container {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Title — Big, Bold, Saffron Blaze ── */
+h1 {
+    color: #ff6600 !important;
+    text-align: center;
+    font-family: 'Bebas Neue', 'Arial Black', 'Impact', sans-serif;
+    font-size: 3.8rem !important;
+    letter-spacing: 4px;
+    text-shadow:
+        3px 3px 0px rgba(255, 102, 0, 0.2),
+        0 0 30px rgba(255, 140, 0, 0.35);
+    margin-bottom: 0.5rem !important;
+    line-height: 1.1;
+}
+
+/* Subtitle decoration line below h1 */
+h1::after {
+    content: '🏏';
+    display: block;
+    font-size: 2rem;
+    margin-top: 0.3rem;
+    text-shadow: none;
+}
+
+/* ── Subheadings ── */
+h2, h3 {
+    color: #003087 !important;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 2px;
+}
+
+/* ── Body text & Markdown ── */
+p, .stMarkdown {
+    color: #2d2d4e;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.stMarkdown p {
+    color: #444466;
+}
+
+/* ── Selectbox — Royal Blue Bordered ── */
+.stSelectbox > div > div > div {
+    background-color: #ffffff !important;
+    border: 2px solid #003087 !important;
+    border-radius: 12px !important;
+    color: #1a1a2e !important;
+    box-shadow: 0 2px 8px rgba(0, 48, 135, 0.12);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    margin-left: 4px !important;
+}
+
+.stSelectbox > div > div > div:hover,
+.stSelectbox > div > div > div:focus-within {
+    border-color: #ff6600 !important;
+    box-shadow: 0 4px 14px rgba(255, 102, 0, 0.2) !important;
+}
+
+.stSelectbox label {
+    color: #003087 !important;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* ── Sliders — Orange Track ── */
+.stSlider > div > div > div {
+    background-color: transparent !important;
+}
+
+.stSlider label {
+    color: #003087 !important;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Slider track */
+.stSlider [data-baseweb="slider"] [data-testid="stSlider"] div div div div {
+    background: #ff6600 !important;
+}
+
+/* ── Number Input / Text Input ── */
+.stNumberInput input, .stTextInput input {
+    background: #ffffff !important;
+    border: 2px solid #003087 !important;
+    border-radius: 12px !important;
+    color: #1a1a2e !important;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    transition: all 0.2s;
+}
+
+.stNumberInput input:focus, .stTextInput input:focus {
+    border-color: #ff6600 !important;
+    box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.15) !important;
+    outline: none;
+}
+
+/* ── Predict Button — Saffron Blaze ── */
+.stButton > button {
+    background: linear-gradient(135deg, #ff6600 0%, #ff9900 50%, #ff6600 100%) !important;
+    background-size: 200% auto !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 50px !important;
+    padding: 14px 40px !important;
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    box-shadow:
+        0 6px 20px rgba(255, 102, 0, 0.4),
+        0 2px 4px rgba(255, 102, 0, 0.2);
+    transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+    margin: 1.5rem auto !important;
+    display: block !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.stButton > button::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.stButton > button:hover {
+    transform: translateY(-4px) scale(1.04) !important;
+    box-shadow:
+        0 14px 32px rgba(255, 102, 0, 0.5),
+        0 4px 8px rgba(255, 102, 0, 0.3) !important;
+    background-position: right center !important;
+}
+
+.stButton > button:hover::before {
+    left: 100%;
+}
+
+.stButton > button:active {
+    transform: translateY(-1px) scale(0.99) !important;
+}
+
+/* ── Success Box — Score Result (Saffron Glow) ── */
+.stSuccess {
+    background: linear-gradient(135deg, rgba(255, 102, 0, 0.08), rgba(255, 153, 0, 0.12)) !important;
+    border: 2.5px solid #ff6600 !important;
+    border-radius: 20px !important;
+    padding: 2rem !important;
+    color: #1a1a2e !important;
+    font-size: 1.5rem !important;
+    font-weight: 700;
+    text-align: center;
+    box-shadow:
+        0 8px 32px rgba(255, 102, 0, 0.15),
+        inset 0 1px 0 rgba(255,255,255,0.8);
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.stSuccess::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(255, 200, 0, 0.08) 0%, transparent 60%);
+    animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.05); opacity: 1; }
+}
+
+/* ── Info Box — Royal Blue ── */
+.stInfo {
+    background: linear-gradient(135deg, rgba(0, 48, 135, 0.07), rgba(0, 80, 200, 0.1)) !important;
+    border: 1.5px solid #003087 !important;
+    border-left: 5px solid #003087 !important;
+    color: #1a1a2e !important;
+    border-radius: 12px !important;
+    backdrop-filter: blur(4px);
+}
+
+/* ── Warning Box ── */
+.stWarning {
+    background: rgba(255, 180, 0, 0.1) !important;
+    border: 1.5px solid #ffaa00 !important;
+    border-left: 5px solid #ffaa00 !important;
+    border-radius: 12px !important;
+    color: #1a1a2e !important;
+}
+
+/* ── Error Box ── */
+.stError {
+    background: rgba(220, 20, 60, 0.07) !important;
+    border: 1.5px solid #dc143c !important;
+    border-left: 5px solid #dc143c !important;
+    border-radius: 12px !important;
+    color: #1a1a2e !important;
+}
+
+/* ── Metric Cards ── */
+[data-testid="metric-container"] {
+    background: #ffffff !important;
+    border: 1.5px solid rgba(0, 48, 135, 0.15) !important;
+    border-radius: 16px !important;
+    padding: 1.2rem !important;
+    box-shadow: 0 4px 16px rgba(0, 48, 135, 0.08) !important;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+[data-testid="metric-container"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 102, 0, 0.15) !important;
+}
+
+[data-testid="metric-container"] [data-testid="stMetricLabel"] {
+    color: #003087 !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.85rem;
+}
+
+[data-testid="metric-container"] [data-testid="stMetricValue"] {
+    color: #ff6600 !important;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem !important;
+    letter-spacing: 1px;
+}
+
+/* ── Dataframe / Tables ── */
+.stDataFrame {
+    border: 1.5px solid rgba(0, 48, 135, 0.2) !important;
+    border-radius: 12px !important;
+    overflow: hidden;
+}
+
+/* ── Divider ── */
+hr {
+    border: none !important;
+    border-top: 2px solid rgba(255, 102, 0, 0.25) !important;
+    margin: 1.5rem 0 !important;
+}
+
+/* ── Sidebar ── */
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #003087 0%, #001a5c 100%) !important;
+    border-right: 3px solid #ff6600 !important;
+}
+
+[data-testid="stSidebar"] * {
+    color: #ffffff !important;
+}
+
+[data-testid="stSidebar"] label {
+    color: #ffd700 !important;
+    font-weight: 700;
+}
+
+[data-testid="stSidebar"] .stSelectbox > div > div > div {
+    background: rgba(255,255,255,0.1) !important;
+    border-color: rgba(255,255,255,0.3) !important;
+    color: #ffffff !important;
+}
+
+/* ── Spinner ── */
+.stSpinner > div {
+    border-top-color: #ff6600 !important;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f0f0fa;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #ff6600, #003087);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff9900;
+}
+
+/* ── Responsive Mobile ── */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.6rem !important;
+        letter-spacing: 2px;
+    }
+
+    .stButton > button {
+        width: 100% !important;
+        font-size: 1rem !important;
+    }
+
+    .stSuccess {
+        font-size: 1.2rem !important;
+        padding: 1.2rem !important;
+    }
+}

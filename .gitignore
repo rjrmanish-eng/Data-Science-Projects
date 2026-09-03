@@ -1,0 +1,27 @@
+*.pkl
+
+# Python virtual environments
+venv/
+.venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Machine Learning models
+*.pkl
+*.h5
+*.joblib
+
+# Large datasets
+*.zip
+*.tar
+*.tar.gz
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/

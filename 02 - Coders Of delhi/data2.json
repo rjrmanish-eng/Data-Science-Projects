@@ -1,0 +1,41 @@
+{
+  "users": [
+    { "id": 1, "name": "Aman Sharma", "email": "aman.sharma@example.com", "city": "Delhi" },
+    { "id": 2, "name": "Riya Verma", "email": "riya.verma@example.com", "city": "Mumbai" },
+    { "id": 3, "name": "Vikram Singh", "email": "vikram.singh@example.com", "city": "Jaipur" },
+    { "id": 4, "name": "Neha Gupta", "email": "neha.gupta@example.com", "city": "Lucknow" },
+    { "id": 5, "name": "Rohit Mehra", "email": "rohit.mehra@example.com", "city": "Pune" },
+    { "id": 6, "name": "Anjali Nair", "email": "anjali.nair@example.com", "city": "Kochi" },
+    { "id": 7, "name": "Karan Patel", "email": "karan.patel@example.com", "city": "Ahmedabad" },
+    { "id": 8, "name": "Simran Kaur", "email": "simran.kaur@example.com", "city": "Chandigarh" },
+    { "id": 9, "name": "Tushar Joshi", "email": "tushar.joshi@example.com", "city": "Indore" },
+    { "id": 10, "name": "Meera Das", "email": "meera.das@example.com", "city": "Kolkata" }
+  ],
+  "pages": [
+    {
+      "page_id": "P01",
+      "page_name": "Tech Trends",
+      "likes": [1, 2, 5, 9]
+    },
+    {
+      "page_id": "P02",
+      "page_name": "Food Lovers",
+      "likes": [3, 4, 6, 10]
+    },
+    {
+      "page_id": "P03",
+      "page_name": "Travel Diaries",
+      "likes": [1, 3, 7, 8, 10]
+    },
+    {
+      "page_id": "P04",
+      "page_name": "Fitness Freaks",
+      "likes": [2, 4, 5, 6, 9]
+    },
+    {
+      "page_id": "P05",
+      "page_name": "Art & Design",
+      "likes": [1, 7, 8, 10]
+    }
+  ]
+}

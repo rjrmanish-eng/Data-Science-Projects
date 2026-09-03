@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>House Price Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+        }
+        .container {
+            width: 400px;
+            margin: 40px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        h2 {
+            text-align: center;
+        }
+        .result {
+            margin-top: 15px;
+            font-weight: bold;
+            color: green;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>House Price Prediction</h2>
+
+    <input type="number" id="longitude" placeholder="Longitude">
+    <input type="number" id="latitude" placeholder="Latitude">
+    <input type="number" id="age" placeholder="Housing Median Age">
+    <input type="number" id="rooms" placeholder="Total Rooms">
+    <input type="number" id="bedrooms" placeholder="Total Bedrooms">
+    <input type="number" id="population" placeholder="Population">
+    <input type="number" id="households" placeholder="Households">
+    <input type="number" step="0.01" id="income" placeholder="Median Income">
+
+    <select id="ocean">
+        <option value="NEAR BAY">NEAR BAY</option>
+        <option value="<1H OCEAN">&lt;1H OCEAN</option>
+        <option value="INLAND">INLAND</option>
+        <option value="NEAR OCEAN">NEAR OCEAN</option>
+        <option value="ISLAND">ISLAND</option>
+    </select>
+
+    <button onclick="predictPrice()">Predict Price</button>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+function predictPrice() {
+
+    const data = {
+        longitude: parseFloat(document.getElementById("longitude").value),
+        latitude: parseFloat(document.getElementById("latitude").value),
+        housing_median_age: parseFloat(document.getElementById("age").value),
+        total_rooms: parseFloat(document.getElementById("rooms").value),
+        total_bedrooms: parseFloat(document.getElementById("bedrooms").value),
+        population: parseFloat(document.getElementById("population").value),
+        households: parseFloat(document.getElementById("households").value),
+        median_income: parseFloat(document.getElementById("income").value),
+        ocean_proximity: document.getElementById("ocean").value
+    };
+
+    fetch("http://127.0.0.1:8000/predict", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(result => {
+        document.getElementById("result").innerText =
+            "Predicted House Price: ₹ " + result.predicted_house_price.toFixed(2);
+    })
+    .catch(error => {
+        document.getElementById("result").innerText = "Error predicting price";
+    });
+}
+</script>
+
+</body>
+</html>
